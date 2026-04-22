@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jerelyn Arangca | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --pink: #ec95c7;
+      --purple: #b79af7;
+      --white: #ffffff;
+      --text: #4b3f57;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(183, 154, 247, 0.3);
+      box-shadow: 0 2px 20px rgba(128, 92, 160, 0.15);
+      z-index: 1000;
+      padding: 15px 0;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      background: var(--purple);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fde7f4, #f4e9ff);
+      color: var(--text);
+      padding-top: 160px; /* INCREASED - now properly separated */
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-bottom: 50px;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px; /* Increased gap between sections */
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(183, 154, 247, 0.2);
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(128, 92, 160, 0.12);
+      padding: 28px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .small-label {
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      color: var(--pink);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      color: var(--purple);
+      line-height: 1.1;
+    }
+
+    .hero h2 {
+      font-size: 1.2rem;
+      color: var(--pink);
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    .intro {
+      margin-top: 14px;
+      max-width: 520px;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .hero-photo {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-photo img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 5px solid var(--white);
+      box-shadow: 0 12px 25px rgba(183, 154, 247, 0.18);
+    }
+
+    .about h3, .details h3, .skills h3, .inspiration h3 {
+      font-size: 1.4rem;
+      color: var(--purple);
+      margin-bottom: 14px;
+    }
+
+    .about p, .inspiration p {
+      line-height: 1.9;
+      font-size: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .details-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .details-list div {
+      background: #fff8fd;
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border: 1px solid rgba(236, 149, 199, 0.18);
+    }
+
+    .details-list span {
+      font-size: 0.85rem;
+      color: #7a6b88;
+    }
+
+    .details-list strong {
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .skill-item {
+      background: #fff8fd;
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      border: 1px solid rgba(183, 154, 247, 0.18);
+    }
+
+    .skill-item span {
+      display: block;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 5px;
+    }
+
+    .skill-item small {
+      color: var(--pink);
+      font-weight: 600;
+    }
+
+    .inspiration {
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .hero, .grid {
+        grid-template-columns: 1fr;
+      }
+      .hero { text-align: center; }
+      .intro { margin-left: auto; margin-right: auto; }
+      .hero-photo img { width: 180px; height: 180px; }
+      body { padding-top: 140px; }
+    }
+
+    @media (max-width: 520px) {
+      body { padding-top: 130px; }
+      .card { padding: 20px; }
+      .skill-list { grid-template-columns: 1fr; }
+      .hero-photo img { width: 160px; height: 160px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#details">Personal Details</a></li>
+        <li><a href="#skills">Skills / Programming Languages</a></li>
+        <li><a href="#inspiration">Inspiration as a Programmer</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page">
+    <section class="hero card">
+      <div class="hero-text">
+        <p class="small-label">PORTFOLIO</p>
+        <h1>Jerelyn Arangca Daileg</h1>
+        <h2>Aspiring Web Designer</h2>
+        <p class="intro">A motivated student who is passionate about technology, creativity, and building simple digital solutions.</p>
+      </div>
+      <div class="hero-photo">
+        <img src="cuteako1.jpg" alt="Jerelyn Arangca Daileg">
+      </div>
+    </section>
+
+    <section class="card about" id="about">
+      <h3>About Me</h3>
+      <p>I am <strong>Jerelyn Arangca Daileg</strong>, <strong>18 years old</strong> a <strong>BSIT 1-B</strong> student at <strong>Our Lady of the Sacred Heart College of Guimba</strong>. I am interested in technology, web design, and programming because I enjoy creating useful and simple digital projects. My goal is to keep learning and improve my skills.</p>
+    </section>
+
+    <section class="grid">
+      <section class="card details" id="details">
+        <h3>Personal Details</h3>
+        <div class="details-list">
+          <div><span>Full Name</span><strong>Jerelyn Arangca Daileg</strong></div>
+          <div><span>Age</span><strong>18</strong></div>
+          <div><span>Email Address</span><strong>jerelynarangcadaileg06@email.com</strong></div>
+          <div><span>Address</span><strong>Manggang Marikit Guimba, Nueva Ecija</strong></div>
+        </div>
+      </section>
+
+      <section class="card skills" id="skills">
+        <h3>Skills / Programming Languages</h3>
+        <div class="skill-list">
+          <div class="skill-item"><span>HTML</span><small>Beginner</small></div>
+          <div class="skill-item"><span>CSS</span><small>Beginner</small></div>
+          <div class="skill-item"><span>JavaScript</span><small>Beginner</small></div>
+          <div class="skill-item"><span>Java</span><small>Beginner</small></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="card inspiration" id="inspiration">
+      <h3>Inspiration as a Programmer</h3>
+      <p>I did not choose IT just because many people say it is in demand. That is true, but it is not my main reason. I chose IT because I can see my future in this course. I believe that someday, this course can help me have a better and comfortable life. That is why I am working hard now, studying and improving my skills. I also want to learn more about technology and use it to help myself and my family in the future.</p>
+    </section>
+  </main>
+</body>
+</html>
